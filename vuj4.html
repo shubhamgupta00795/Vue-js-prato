@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue Js- 4 | method calling</title>
+        <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    </head>
+    <body>
+        <div id="user">
+            <h2 v-if = "flag">Hi {{ message }}</h2>
+            <ol>
+                <li v-for="alias in user_name"> {{ alias.text }} </li>
+            </ol>
+            <button v-on:click="ChangeName">Name Change</button>
+        </div>
+    </body>
+    <script>
+        let name = new Vue({
+            el: '#user',
+            data: {
+                message: "Shubham Gupta",
+                flag: 1,
+                user_name: [
+                    {text : 'Shubham Gupta'},
+                    {text : 'Sneha Gupta'},
+                    {text : 'Saurabh Gupta'}
+                ]
+            },
+            methods: {
+                ChangeName: function(){
+                    this.message = "Sneha Gupta"
+                }
+            }
+        });
+    </script>
+</html>
