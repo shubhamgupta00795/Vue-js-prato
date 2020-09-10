@@ -9,35 +9,24 @@
     </head>
     <body>
         <div id="app">
-            <h1 v-bind:title="message">This is a page for {{ name }}</h1>
+            <h1 v-if = "status" >This is a page for {{ name }}</h1>
+            <p> {{ message }} </p>
+            <h2>This is a page for {{ name2 }}</h2>
+            <p> {{ message2 }} </p>
+            <h3>This is {{ name3 }}</h3>
+            <p> {{ Message3 }} </p>
         </div>
-        <div id="app1">
-            <h2>This is a page for {{ name }}</h2>
-        </div>
-
-        <div id="app2">
-            <h3>This is {{ name1 }}</h3>
-        </div>
-
         <script>
             var app = new Vue({
                 el: '#app',
                 data: {
                     name: 'Shubham Gupta' ,
-                    message: 'He is a CEO'
-                }
-            });
-            var app1 = new Vue({
-                el: '#app1',
-                data: {
-                    name: 'Sneha Gupta' 
-                }
-            });
-
-            var app2 = new Vue({
-                el: '#app2',
-                data: {
-                    name1: 'Saurabh Gupta'
+                    message: 'He is a CEO' ,
+                    status: 'true',
+                    name2: 'Sneha Gupta',
+                    message2: 'She is a CFO',
+                    name3: 'Saurabh Gupta',
+                    Message3: 'He is a COO'
                 }
             });
         </script>

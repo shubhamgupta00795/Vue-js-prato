@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue-2</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app2">
+            <h1 v-if = 'validity'>Hello {{ User }}</h1>
+        </div>
+        <script>
+            let Name = new Vue({
+                el: '#app2',
+                data: {
+                    User: 'Shubham Gupta',
+                    validity: true
+                }
+            });
+        </script>
+    </body>
+</html>
