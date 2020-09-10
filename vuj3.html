@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue3</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="listing">
+            <ol>
+                <li v-for="alias in names"> {{ alias.text }} </li>
+            </ol>
+        </div>
+        <script>
+            let name = new Vue({
+                el: '#listing',
+                data: {
+                    names:[
+                        { text: "Shubham", },
+                        { text: "Sneha", },
+                        { text: "Saurabh" }
+                    ]
+                }
+            });
+        </script>
+    </body>
+</html>
