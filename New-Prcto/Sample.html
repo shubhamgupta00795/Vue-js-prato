@@ -21,10 +21,22 @@
 </head>
 <body>
 	<div class="boxes" id="todo">
-		<h2> {{ heading }} </h2>
-		<!-- <input type="" v-model="heading"> -->
+		<div class="heading-buttons">
+			<h2> {{ heading }} </h2>
+			<button class="btn btn-primary" v-if="state === 'default'" @click="changeState('edit')">
+				Add-Button
+			</button>
+			<button class="btn btn-primary" v-else @click="changeState('default')">
+				Remove-Button
+			</button>
+		</div>
+		<div class="add-items" v-if="state === 'edit'">
+		<input type="" v-model="new_item" placeholder="Add New Item" v-bind:disabled="new_item.length === 0" @keyup.enter="saveItems">
+		<button @click="saveItems" class="btn btn-primary">Click me</button>
+		</div>
+		<p v-if="items.length === 0">Please enter some values</p>
 		<ol>
-			<li v-for="item in items"> {{ item }}</li>
+			<li v-for="item in items"> {{ item }} </li>
 		</ol>
 	</div>
 
@@ -33,11 +45,23 @@
 			el: "#todo",
 			data: {
 				heading: "Shubham",
+				state: 'default',
+				new_item: "",
 				items: [
 					"Item1",
 					"Item2",
 					"Item3",
 				]
+			},
+			methods: {
+				saveItems: function(){
+					this.items.push(this.new_item);
+					this.new_item="";
+					console.log(this.new_item);
+				},
+				changeState: function(newState){
+					this.state = newState;
+				}
 			}
 		});
 	</script>
