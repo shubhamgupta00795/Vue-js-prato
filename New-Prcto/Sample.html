@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUJ-App</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<style>
+		.boxes{
+			position: absolute;
+    		top: 20%;
+    		left: 30%;
+    		background: #af9090;
+    		padding: 50px;
+    		transform: translate(50px, 50px);
+    		width: 600px;
+    		height: 500px;
+    		box-shadow: 5px 1px 20px 1px #af9090;
+		}
+		h2{
+			width: auto;
+    		display: inline-block;
+    		margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="boxes" id="todo">
+		<div class="heading-buttons">
+			<h2> {{ heading }} </h2>
+			<button class="btn btn-primary" v-if="state === 'default'" @click="changeState('edit')">
+				Add
+			</button>
+			<button class="btn btn-primary" v-else @click="changeState('default')">
+				Remove
+			</button>
+		</div>
+		<div class="add-items" v-if="state === 'edit'">
+		<input type="" v-model="new_item" placeholder="Add New Item" @keyup.enter="saveItems">
+		<button @click="saveItems" class="btn btn-primary" :disabled="new_item.length === 0">Click me</button>
+		</div>
+		<p v-if="items.length === 0">Please enter some values</p>
+		<ol>
+			<li v-for="item in items"> {{ item }} </li>
+		</ol>
+	</div>
+
+	<script>
+		var list = new Vue({
+			el: "#todo",
+			data: {
+				heading: "This is a Heading Value",
+				state: 'default',
+				new_item: "",
+				items: [
+					"Item1",
+					"Item2",
+					"Item3",
+				]
+			},
+			methods: {
+				saveItems: function(){
+					this.items.push(this.new_item);
+					this.new_item="";
+					console.log(this.new_item);
+				},
+				changeState: function(newState){
+					this.state = newState;
+				}
+			}
+		});
+	</script>
+</body>
+</html>
