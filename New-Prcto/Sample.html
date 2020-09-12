@@ -13,6 +13,7 @@
     		background: #af9090;
     		padding: 50px;
     		transform: translate(50px, 50px);
+<<<<<<< HEAD
     		width: 600px;
     		height: 500px;
     		box-shadow: 5px 1px 20px 1px #af9090;
@@ -22,6 +23,12 @@
     		display: inline-block;
     		margin-right: 10px;
 		}
+=======
+    		width: 320px;
+    		height: 200px;
+    		box-shadow: 5px 1px 20px 1px #af9090;
+		}
+>>>>>>> 7e865400aa225b3fb3eb16c2e1123d9ecfb1530a
 	</style>
 </head>
 <body>
@@ -29,6 +36,7 @@
 		<div class="heading-buttons">
 			<h2> {{ heading }} </h2>
 			<button class="btn btn-primary" v-if="state === 'default'" @click="changeState('edit')">
+<<<<<<< HEAD
 				Add
 			</button>
 			<button class="btn btn-primary" v-else @click="changeState('default')">
@@ -38,6 +46,17 @@
 		<div class="add-items" v-if="state === 'edit'">
 		<input type="" v-model="new_item" placeholder="Add New Item" @keyup.enter="saveItems">
 		<button @click="saveItems" class="btn btn-primary" :disabled="new_item.length === 0">Click me</button>
+=======
+				Add-Button
+			</button>
+			<button class="btn btn-primary" v-else @click="changeState('default')">
+				Remove-Button
+			</button>
+		</div>
+		<div class="add-items" v-if="state === 'edit'">
+		<input type="" v-model="new_item" placeholder="Add New Item" v-bind:disabled="new_item.length === 0" @keyup.enter="saveItems">
+		<button @click="saveItems" class="btn btn-primary">Click me</button>
+>>>>>>> 7e865400aa225b3fb3eb16c2e1123d9ecfb1530a
 		</div>
 		<p v-if="items.length === 0">Please enter some values</p>
 		<ol>
@@ -49,7 +68,11 @@
 		var list = new Vue({
 			el: "#todo",
 			data: {
+<<<<<<< HEAD
 				heading: "This is a Heading Value",
+=======
+				heading: "Shubham",
+>>>>>>> 7e865400aa225b3fb3eb16c2e1123d9ecfb1530a
 				state: 'default',
 				new_item: "",
 				items: [
